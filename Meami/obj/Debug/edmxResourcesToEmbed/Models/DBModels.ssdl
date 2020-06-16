@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MeamiShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MeamiShop.dbo.Customer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="ProductCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MeamiShop.dbo.Product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Available" Type="int" />
+  </EntityType>
+  <EntityContainer Name="MeamiShopModelStoreContainer">
+    <EntitySet Name="Customer" EntityType="Self.Customer" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Customer].[Id] AS [Id], 
+    [Customer].[Name] AS [Name], 
+    [Customer].[Code] AS [Code], 
+    [Customer].[Mobile] AS [Mobile], 
+    [Customer].[ProductCode] AS [ProductCode]
+    FROM [dbo].[Customer] AS [Customer]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Product" EntityType="Self.Product" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Product].[Id] AS [Id], 
+    [Product].[Code] AS [Code], 
+    [Product].[Name] AS [Name], 
+    [Product].[Price] AS [Price], 
+    [Product].[Available] AS [Available]
+    FROM [dbo].[Product] AS [Product]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

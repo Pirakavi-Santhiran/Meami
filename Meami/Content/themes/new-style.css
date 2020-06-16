@@ -1,0 +1,16 @@
+﻿
+.add-button {
+    color: #fff;
+    background-color: #F36A5A;
+    border-color: #F36A5A;
+}
+
+.field-validation-error {
+    color: #e80c4d;
+    font-weight: bold;
+}
+
+
+input.input-validation-error {
+    border: 1px solid #e80c4d;
+}
